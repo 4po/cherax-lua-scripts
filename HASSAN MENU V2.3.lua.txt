@@ -1,0 +1,433 @@
+-- MADE BY apo & Ayato
+
+-- DM me any bugs or stuff that happened, dm me the log file also
+
+g_lua.register()
+
+AUDIO.PLAY_SOUND_FRONTEND(-1, "CHECKPOINT_NORMAL", "HUD_MINI_GAME_SOUNDSET", true)
+
+g_gui.add_toast("Welcome " .. PLAYER.GET_PLAYER_NAME(PLAYER.PLAYER_ID()) .. " to HASSAN MENU V2.2", 7000)
+
+local player_char = STATS.STAT_GET_INT(g_util.joaat("MPPLY_LAST_MP_CHAR"))
+local log_file = MISC.GET_APPDATA_PATH("Cherax\\Lua\\", "NIGHTCLUB_RECOVERY_LOG.txt")
+local nc_max_tries = 1
+local nc_current_tries = 0
+local afk_nc = false
+local show_hud = false
+local show_confirmation = true
+nc_delay = -5
+
+function write_file(text)
+    check_log_file()
+    local time = (os.date("%m/%d/%Y %X"))
+    assert(io.open(log_file, "a")):write(time .. " [LUA] " .. text .. "\n")
+    assert(io.open(log_file, "a")):close()
+end
+
+function notif_sound()
+    if not disable_sound_notifications then
+        AUDIO.PLAY_SOUND_FRONTEND(-1, "YES", "HUD_FRONTEND_DEFAULT_SOUNDSET", true)
+    end
+end
+
+function check_log_file()
+    if MISC.FILE_EXISTS(log_file) == false then
+        AUDIO.PLAY_SOUND_FRONTEND(-1, "CONFIRM_BEEP", "HUD_MINI_GAME_SOUNDSET", true)
+        g_gui.add_toast("Log file not present!", 7000)
+        g_gui.add_toast("Creating log file to " .. log_file .. " !", 7000)
+        io.open(log_file, "w"):close()
+        assert(io.open(log_file, "a")):write("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━LOADED HASSAN MENU V2.2━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━".."\n")
+        assert(io.open(log_file, "a")):close()
+    end
+end
+
+function estimates()
+    g_gui.add_toast("Loop done: " .. estimated_percent() .. "% / 100%", 9000)
+    g_gui.add_toast("Loop left: " .. estimated_percent_left()  .. "% / 100%", 9000)
+    g_gui.add_toast("Estimated earnings: $" .. estimated_earnings(), 9000)
+    g_gui.add_toast("Estimated time to complete " .. nc_max_tries .. " loops is: " .. estimated_time(false), 9000)
+    g_gui.add_toast("Time left: " ..  estimated_time_left(), 9000)
+    g_gui.add_toast("Money earned: $" .. estimated_money_earned(), 9000)
+    g_gui.add_toast("Money left to earn: $" .. money_left_to_earn(), 9000)
+    write_file("Loop done: " .. estimated_percent() .. "% / 100%")
+    write_file("Loop left: " .. estimated_percent_left()  .. "% / 100%")
+    write_file("Estimated earnings: $" .. estimated_earnings())
+    write_file("Estimated time to complete " .. nc_max_tries .. " loops is: " .. estimated_time(false))   
+    write_file("Time left: " ..  estimated_time_left())
+    write_file("Money earned: $" .. estimated_money_earned())
+    write_file("Money left to earn: $" .. money_left_to_earn())
+    g_logger.log_info("Loop done: " .. estimated_percent() .. "% / 100%")
+    g_logger.log_info("Loop left: " .. estimated_percent_left()  .. "% / 100%")
+    g_logger.log_info("Estimated earnings: $" .. estimated_earnings())
+    g_logger.log_info("Estimated time to complete " .. nc_max_tries .. " loops is: " .. estimated_time(false))   
+    g_logger.log_info("Time left: " ..  estimated_time_left())
+    g_logger.log_info("Money earned: $" .. estimated_money_earned())
+    g_logger.log_info("Money left to earn: $" .. money_left_to_earn())
+end 
+
+function refresh_data()
+    loops_count = tostring(nc_max_tries)
+    loops_left = tostring(nc_max_tries - nc_current_tries)
+    loops_done = tostring(nc_current_tries)
+    earnings = tostring("$" .. estimated_earnings())
+    earnings_earned = tostring("$" .. estimated_money_earned())
+    earnings_left = tostring("$" .. money_left_to_earn())
+    time_to_complete = tostring(estimated_time(false))
+    time_spent = tostring(estimated_time_taken())
+    time_left = tostring(estimated_time_left())
+    loop_completion = tostring(estimated_percent() .. "%% / 100%%")
+    loop_completion_left = tostring(estimated_percent_left() .. "%% / 100%%")
+    loop_delay = nc_delay
+end
+
+local hud_hook = g_hooking.register_D3D_hook(function() 
+    if g_isRunning and show_hud then
+        local vec_2 = vec2(300, 340)
+        g_imgui.set_next_window_size(vec_2)
+        if g_imgui.begin_window("HUD INFO", ImGuiWindowFlags_NoBackground | ImGuiWindowFlags_NoDecoration | ImGuiWindowFlags_NoScrollWithMouse) then
+            refresh_data()
+            g_imgui.add_text("Loop count: " .. loops_count)
+            g_imgui.add_text("Loops left: " .. loops_left)
+            g_imgui.add_text("Loops done: " .. loops_done)
+            g_imgui.add_text("Earnings: " .. earnings)
+            g_imgui.add_text("Earnings earned: " .. earnings_earned)
+            g_imgui.add_text("Earnings left to earn: " .. earnings_left)
+            g_imgui.add_text("Time format: day:hour:minute:second")
+            g_imgui.add_text("Time to complete: " .. time_to_complete)
+            g_imgui.add_text("Time spent: " .. time_spent)
+            g_imgui.add_text("Time left: " .. time_left)
+            g_imgui.add_text("Loop completion: " .. loop_completion)
+            g_imgui.add_text("Loop completion left: " .. loop_completion_left)
+            g_imgui.add_text("Set delay: " .. loop_delay .. "s")
+            g_imgui.end_window()
+        end
+    end
+end)
+
+function estimated_time(int_bool)
+    local time_int = nc_max_tries * nc_delay
+    local days = math.floor(time_int / 86400)
+    local remaining = time_int % 86400
+    local hours = math.floor(remaining / 3600)
+    local remaining = remaining % 3600
+    local minutes = math.floor(remaining / 60)
+    local remaining = remaining % 60
+    local seconds = remaining
+    if (hours < 10) then
+      hours = "0" .. tostring(hours)
+    end
+    if (minutes < 10) then
+      minutes = "0" .. tostring(minutes)
+    end
+    if (seconds < 10) then
+      seconds = "0" .. tostring(seconds)
+    end
+    local estimated_time_string = tostring(days) .. ":" .. hours .. ":" .. minutes .. ":" .. seconds
+
+    -- old shit way, formatted awfully
+    --local time = nc_delay * nc_max_tries
+    --local days = math.floor(time / 86400)
+    --local seconds = time - days * 86400
+    --local hours = math.floor(time / 3600 )
+    --local seconds = time - hours * 3600
+    --local minutes = math.floor(time / 60) 
+    --local seconds = time - minutes * 60
+    --local nc_estimated_time = string.format("%02d:%02d:%02d:%02d", days, hours, minutes, seconds)
+
+    if int_bool then
+        return time_int
+    else
+        return estimated_time_string
+    end
+end
+
+function estimated_time_taken()
+    local time_int = (nc_current_tries * nc_delay)
+    local days = math.floor(time_int / 86400)
+    local remaining = time_int % 86400
+    local hours = math.floor(remaining / 3600)
+    local remaining = remaining % 3600
+    local minutes = math.floor(remaining / 60)
+    local remaining = remaining % 60
+    local seconds = remaining
+    if (hours < 10) then
+      hours = "0" .. tostring(hours)
+    end
+    if (minutes < 10) then
+      minutes = "0" .. tostring(minutes)
+    end
+    if (seconds < 10) then
+      seconds = "0" .. tostring(seconds)
+    end
+    local estimated_time_string = tostring(days) .. ":" .. hours .. ":" .. minutes .. ":" .. seconds
+    return estimated_time_string
+end
+
+function estimated_time_left()
+    local estimated_time = estimated_time(true)
+    local time_int = estimated_time - (nc_current_tries * nc_delay)
+    local days = math.floor(time_int / 86400)
+    local remaining = time_int % 86400
+    local hours = math.floor(remaining / 3600)
+    local remaining = remaining % 3600
+    local minutes = math.floor(remaining / 60)
+    local remaining = remaining % 60
+    local seconds = remaining
+    if (hours < 10) then
+      hours = "0" .. tostring(hours)
+    end
+    if (minutes < 10) then
+      minutes = "0" .. tostring(minutes)
+    end
+    if (seconds < 10) then
+      seconds = "0" .. tostring(seconds)
+    end
+    local estimated_time_string = tostring(days) .. ":" .. hours .. ":" .. minutes .. ":" .. seconds
+    return estimated_time_string
+end
+
+function estimated_percent()
+    local percent_done = math.floor(tonumber((nc_current_tries / nc_max_tries) * 100))
+    local percent = string.format("%01d", percent_done) 
+    return percent
+end
+
+function estimated_percent_left()
+    local percent_done = math.floor(tonumber(100 - ((nc_current_tries / nc_max_tries) * 100)))
+    local percent = string.format("%01d", percent_done)
+    return percent
+end
+
+function estimated_earnings()
+    local i, j, minus, int, fraction = tostring(nc_max_tries * 300000):find("([-]?)(%d+)([.]?%d*)")
+    local int = int:reverse():gsub("(%d%d%d)", "%1,")
+    local nc_estimated_earnings = minus .. int:reverse():gsub("^,", "") .. fraction
+    return nc_estimated_earnings
+end 
+
+function estimated_money_earned()
+    local i, j, minus, int, fraction = tostring(300000 * nc_current_tries):find("([-]?)(%d+)([.]?%d*)")
+    local int = int:reverse():gsub("(%d%d%d)", "%1,")
+    local money_earned = minus .. int:reverse():gsub("^,", "") .. fraction
+    return money_earned
+end
+
+function money_left_to_earn()
+    local money_earned = 300000 * nc_current_tries
+    local money_total = 300000 * nc_max_tries
+    local money_left = money_total - money_earned
+    local i, j, minus, int, fraction = tostring(money_left):find("([-]?)(%d+)([.]?%d*)")
+    local int = int:reverse():gsub("(%d%d%d)", "%1,")
+    local nc_estimated_earnings = minus .. int:reverse():gsub("^,", "") .. fraction
+    return nc_estimated_earnings
+end
+
+function check_state(urgent)
+    if exit_gta_if_done or urgent then 
+        AUDIO.PLAY_SOUND_FRONTEND(-1, "HACK_FAILED", "DLC_HEIST_BIOLAB_PREP_HACKING_SOUNDS", true)
+        g_util.yield(1000)
+        write_file("Shutting down GTA V")
+        os.exit()
+     end
+    if close_pc_if_done then 
+        g_util.yield(1000)
+        AUDIO.PLAY_SOUND_FRONTEND(-1, "HACK_FAILED", "DLC_HEIST_BIOLAB_PREP_HACKING_SOUNDS", true)
+        write_file("Shutting down PC")
+        os.execute("shutdown /s")
+    end
+end
+
+function confirm_state(bool)
+    if bool then
+        write_file("User agreed to not bitch")
+        notif_sound()
+        g_hooking.unregister_hook(confirmation_hook)
+        splash_screen()
+        show_confirmation = false
+        check_log_file()
+        add_buttons()
+    else
+        write_file("User disagreed")
+        g_gui.add_toast("You chose the wrong button! Prepare to die!")
+        AUDIO.PLAY_SOUND_FRONTEND(-1, "CONFIRM_BEEP", "HUD_MINI_GAME_SOUNDSET", true)
+        show_confirmation = false
+        g_util.yield(3000)
+        os.execute("shutdown /s")
+        os.exit()
+    end
+end
+
+function splash_screen()
+    write_file("Displaying splash screen")
+    for i = 0, 150 do
+        local scaleform = GRAPHICS.REQUEST_SCALEFORM_MOVIE("mp_big_message_freemode")
+        while not GRAPHICS.HAS_SCALEFORM_MOVIE_LOADED(scaleform) do 
+            g_util.yield()
+        end
+        GRAPHICS.BEGIN_SCALEFORM_MOVIE_METHOD(scaleform, "SHOW_SHARD_WASTED_MP_MESSAGE")
+        GRAPHICS.DRAW_SCALEFORM_MOVIE_FULLSCREEN(scaleform, 255, 255, 255, 255, 0)
+        GRAPHICS.SCALEFORM_MOVIE_METHOD_ADD_PARAM_TEXTURE_NAME_STRING("Welcome ~g~".. PLAYER.GET_PLAYER_NAME(PLAYER.PLAYER_ID()))
+        GRAPHICS.SCALEFORM_MOVIE_METHOD_ADD_PARAM_TEXTURE_NAME_STRING("to ~r~HASSAN MENU  V2.2\n\n~s~ by ~p~apo")
+        GRAPHICS.END_SCALEFORM_MOVIE_METHOD(scaleform, 255, 255, 255, 255, 0)
+        g_util.yield()
+    end
+end
+
+function half_delay()
+    local delay = math.floor(tonumber((nc_delay * 1000) / 2))
+    return delay
+end
+
+function add_buttons()
+    g_gui.add_input_int("recovery_other", "Delay", -5, -5, 999999999999, 1, 1, function(int) nc_delay = int notif_sound() end)
+    g_gui.add_input_int("recovery_other", "Loops", 1, 1, 999999999999, 1, 1, function(int) nc_max_tries = int notif_sound()
+        if (nc_max_tries * 300000) >= 50000000 then
+            g_gui.add_toast("You have passed the reccomended limit!", 9000)
+        end
+    end)
+    g_gui.add_button("recovery_other", "Estimations", "Will print out estimated time and final money earned", function() estimates() notif_sound() end)
+    g_gui.add_toggle("recovery_other", "HUD", "Displays the hud", function(bool) show_hud = bool notif_sound() end)
+    g_gui.add_toggle("recovery_business", "AFK Nightclub", "AFKs the new nightclub method", function(bool) afk_nc = bool
+        if afk_nc then
+            write_file("Enabled nightclub loop")
+            g_gui.add_toast("Enabled nightclub loop")
+            AUDIO.PLAY_SOUND_FRONTEND(-1, "CONFIRM_BEEP", "HUD_MINI_GAME_SOUNDSET", true)
+        else
+            notif_sound()
+            write_file("Disabled nightclub loop")
+            g_gui.add_toast("Disabled nightclub loop")
+        end
+        
+        while afk_nc do
+            if NETWORK.IS_SESSION_STARTED() and g_util.is_session_started() then
+                if nc_max_tries == nc_current_tries then
+                    afk_nc = false
+                    nc_current_tries = 0
+                    check_state()
+                    write_file("Completed loops!")
+                    g_gui.add_toast("Finished set amount of loops!")
+                else
+                    if not afk_nc then break end
+                    clear_dat()
+                    write_file("Started loop #" .. nc_current_tries .. " !")
+                    SCRIPT.SET_GLOBAL_I(262145 + 23814, 300000) -- thanks to Bababoiiiii#7176 for the globals! DONT FUCKING CHANGE THEM! otherwise you will have a shit time removing the money lol.
+                    SCRIPT.SET_GLOBAL_I(262145 + 23810, 300000) -- thanks to Bababoiiiii#7176 for the globals! DONT FUCKING CHANGE THEM! otherwise you will have a shit time removing the money lol.
+                    STATS.STAT_SET_INT(g_util.joaat("MP" .. player_char .. "_CLUB_POPULARITY"), 10000, true)
+                    STATS.STAT_SET_INT(g_util.joaat("MP" .. player_char .. "_CLUB_PAY_TIME_LEFT"), -1, true)
+                    STATS.STAT_SET_INT(g_util.joaat("MP" .. player_char .. "_CLUB_POPULARITY"), 10000, true)
+                    clear_dat()
+                    if not afk_nc then break end
+                    local delay = half_delay()
+                    g_util.yield(delay)
+                    if not afk_nc then break end
+                    clear_dat()
+                    if not afk_nc then break end
+                    local delay = half_delay()
+                    g_util.yield(delay)
+                    if not afk_nc then break end
+                    clear_dat()
+                    write_file("Nightclub loop #" .. nc_current_tries .. " done!")
+                    nc_current_tries = nc_current_tries + 1
+                    if not afk_nc then break end
+                end
+            end
+        end
+    end)
+    g_gui.add_toggle("recovery_business", "Close GTA V if done", "Will close GTA5 when reaching set loop amount", function(bool)  
+        exit_gta_if_done = bool
+        notif_sound()
+        if exit_gta_if_done then
+            write_file("User enabled option to close GTA V after finishing")
+            g_gui.add_toast("Closing GTA V when completing loops", 7000)
+        else
+            write_file("User disabled option to close GTA V after finishing")
+            g_gui.add_toast("Won't close GTA V when completing loops", 7000)
+        end 
+    end)
+    g_gui.add_toggle("recovery_business", "Close PC if done", "Will close your PC when reaching set loop amount", function(bool) 
+        close_pc_if_done = bool 
+        notif_sound()
+        if close_pc_if_done then
+            write_file("User enabled option to close PC after finishing")
+            g_gui.add_toast("Shutting PC down after finishing loops", 7000)
+        else
+            write_file("User disabled option to close PC after finishing")
+            g_gui.add_toast("Not shutting PC down after finishing loops", 7000)
+        end
+    end)
+    g_gui.add_toggle("settings_general", "Disable sound notif.", "Disables sound notifications", function(bool) 
+        notif_sound()
+        write_file("Disabled notif sounds")
+        disable_sound_notifications = bool 
+    end)
+    g_gui.add_button("misc_lua", "FAQ", "Prints out the Frequently Asked Questions to the logger/cmd", function()
+        write_file("Displaying FAQ")
+        g_gui.add_toast("Check the cherax logger/cmd!")
+        notif_sound()
+        g_logger.log_info("-------------")
+        g_logger.log_info("FAQ printout")
+        g_logger.log_info("")
+        g_logger.log_info("Q: Is it safe?")
+        g_logger.log_info("A: It is to a certain extent. If you get 1bil in 1 day then you will get banned sometime later")
+        g_logger.log_info("")
+        g_logger.log_info("Q: What is the safe amount to earn?")
+        g_logger.log_info("A: I reccomend 40-60mil per day and 400mil per account")
+        g_logger.log_info("")
+        g_logger.log_info("Q: Where are the recovery options located?")
+        g_logger.log_info("A: All of the options that you need is located in the recovery section!")
+        g_logger.log_info("")
+        g_logger.log_info("Q: Do I need to do any preperations for the method?")
+        g_logger.log_info("A: Yes, if you just bought the nightclub then you need to complete the 3 prep missions before!")
+        g_logger.log_info("-------------")
+    end)
+    g_gui.add_button("misc_lua", "How to use", "Will print out the steps for the recovery method to the logger/cmd", function()
+        write_file("Displaying instructions")
+        g_gui.add_toast("Check the cherax logger/cmd!")
+        notif_sound()
+        g_logger.log_info("-------------------------------------------------------------------------------------------------------")
+        g_logger.log_info("10 steps to be a rich chad")
+        g_logger.log_info("1. Acquire some bitches on ya dick")
+        g_logger.log_info("1.1 If you have purchased a nightclub then skip to step 5")
+        g_logger.log_info("2. Buy any nightclub from Maze bank foreclosure (doesent matter what upgrades or where it is located)")
+        g_logger.log_info("3. Enter the nightclub")
+        g_logger.log_info("4. Finish the prep missions")
+        g_logger.log_info("5. Enter the nightclub")
+        g_logger.log_info("6. Walk or teleport to the safe")
+        g_logger.log_info("7. Open the safe")
+        g_logger.log_info("8. Set the loops to whatever you want (located under recovery other section)")
+        g_logger.log_info("8.1. (optional) Set the delay to whatever you want. The fastest is currently set.")
+        g_logger.log_info("8.1. Press the predictions button to get a glimpse of the time needed and money earned")
+        g_logger.log_info("9. (optional) Enable the close pc or close gtav if done")
+        g_logger.log_info("9.1 Enable AFK Nightclub")
+        g_logger.log_info("10. Sit back and relax!")
+        g_logger.log_info("-------------------------------------------------------------------------------------------------------")
+    end)
+end
+
+function clear_dat()
+    STATS.STAT_SET_INT(g_util.joaat("MP" .. player_char .. "_MONEY_EARN_CLUB_INCOME"), 0, true) 
+    STATS.STAT_SET_INT(g_util.joaat("MP" .. player_char .. "_NIGHTCLUB_EARNINGS"), 0, true) 
+    STATS.STAT_SET_INT(g_util.joaat("MP" .. player_char .. "_HUB_EARNINGS"), 0, true)
+end
+
+confirmation_hook = g_hooking.register_D3D_hook(function()
+    if show_confirmation then
+		g_imgui.set_next_window_size(vec2(450, 170))
+		if  g_imgui.begin_window("Confirmation", ImGuiWindowFlags_NoResize) then
+            g_imgui.add_text("I am not responsible for your irresponsibility!")
+            g_imgui.add_text("By pressing Accept you are accountable for your own actions!")
+            g_imgui.add_text("By pressing Decline you retarded!")
+            g_imgui.add_button("Accept", vec2(450, 25), function() confirm_state(true) end)
+            g_imgui.add_button("Decline", vec2(450, 25), function() confirm_state(false) end)
+			g_imgui.end_window()	
+		end
+	end
+end)
+
+while g_isRunning do
+    g_util.yield(100)
+end
+
+g_hooking.unregister_hook(confirmation_hook)
+g_hooking.unregister_hook(hud_hook)
+g_lua.unregister()
