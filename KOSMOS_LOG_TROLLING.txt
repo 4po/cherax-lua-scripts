@@ -1,0 +1,185 @@
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━LOADED KOSMOS TROLLING━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+07/13/2022 10:08:40 [LUA] Log file was missing! Created new one!
+07/13/2022 10:08:47 [LUA] User chose external type
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━LOADED KOSMOS TROLLING━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+07/13/2022 10:10:50 [LUA] User chose external type
+07/13/2022 10:14:39 [LUA] Random chat reaction #28
+07/13/2022 10:15:54 [LUA] Changed snecke1 licence plate to h
+07/13/2022 10:15:56 [LUA] Failed to request control of ent: 0 within 2 seconds
+07/13/2022 10:15:56 [LUA] Changed snecke1 licence plate to ha
+07/13/2022 10:15:56 [LUA] Failed to request control of ent: 0 within 2 seconds
+07/13/2022 10:15:56 [LUA] Changed snecke1 licence plate to h
+07/13/2022 10:15:57 [LUA] Failed to request control of ent: 0 within 2 seconds
+07/13/2022 10:15:57 [LUA] Changed snecke1 licence plate to 
+07/13/2022 10:15:57 [LUA] Failed to request control of ent: 0 within 2 seconds
+07/13/2022 10:15:57 [LUA] Changed snecke1 licence plate to G
+07/13/2022 10:15:57 [LUA] Failed to request control of ent: 0 within 2 seconds
+07/13/2022 10:15:57 [LUA] Changed snecke1 licence plate to GA
+07/13/2022 10:15:57 [LUA] Failed to request control of ent: 0 within 2 seconds
+07/13/2022 10:15:57 [LUA] Changed snecke1 licence plate to GAY
+07/13/2022 10:16:11 [LUA] Failed to request control of ent: 0 within 2 seconds
+07/13/2022 10:16:11 [LUA] Changed snecke1's vehicles max speed to 869
+07/13/2022 10:16:13 [LUA] Failed to request control of ent: 0 within 2 seconds
+07/13/2022 10:16:13 [LUA] Changed snecke1's vehicles max speed to 1269
+07/13/2022 10:16:15 [LUA] Failed to request control of ent: 0 within 2 seconds
+07/13/2022 10:16:15 [LUA] Changed snecke1's vehicles max speed to 1269
+07/13/2022 10:17:02 [LUA] Failed to request control of ent: 0 within 2 seconds
+07/13/2022 10:17:02 [LUA] Changed snecke1's vehicles max speed to 2669
+07/13/2022 10:17:21 [LUA] Failed to request control of ent: 0 within 2 seconds
+07/13/2022 10:17:24 [LUA] Failed to request control of ent: 0 within 2 seconds
+07/13/2022 10:17:25 [LUA] Failed to request control of ent: 0 within 2 seconds
+07/13/2022 10:17:27 [LUA] Failed to request control of ent: 0 within 2 seconds
+07/13/2022 10:17:31 [LUA] Failed to request control of ent: 0 within 2 seconds
+07/13/2022 10:17:32 [LUA] Failed to request control of ent: 0 within 2 seconds
+07/13/2022 10:17:33 [LUA] Failed to request control of ent: 0 within 2 seconds
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━LOADED KOSMOS TROLLING━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+07/13/2022 10:45:17 [LUA] User chose external type
+07/13/2022 10:45:24 [LUA] Enabled Disable godmode on player bartek1506
+07/13/2022 10:46:04 [LUA] Glithced bartek1506's vehicle
+07/13/2022 10:47:21 [LUA] Disabled tire poppin'!
+07/13/2022 10:47:24 [LUA] Changed bartek1506's vehicles max speed to 0
+07/13/2022 10:47:32 [LUA] Changed bartek1506 licence plate to G
+07/13/2022 10:47:32 [LUA] Changed bartek1506 licence plate to GA
+07/13/2022 10:47:32 [LUA] Changed bartek1506 licence plate to GAY
+07/13/2022 10:47:32 [LUA] Changed bartek1506 licence plate to GAY 
+07/13/2022 10:47:33 [LUA] Changed bartek1506 licence plate to GAY B
+07/13/2022 10:47:33 [LUA] Changed bartek1506 licence plate to GAY BI
+07/13/2022 10:47:33 [LUA] Changed bartek1506 licence plate to GAY BIT
+07/13/2022 10:47:33 [LUA] Changed bartek1506 licence plate to GAY BITC
+07/13/2022 10:47:35 [LUA] Changed bartek1506 licence plate to GAY BITC
+07/13/2022 10:47:35 [LUA] Changed bartek1506 licence plate to GAY BIT
+07/13/2022 10:47:35 [LUA] Changed bartek1506 licence plate to GAY BI
+07/13/2022 10:47:35 [LUA] Changed bartek1506 licence plate to GAY B
+07/13/2022 10:47:36 [LUA] Changed bartek1506 licence plate to GAY 
+07/13/2022 10:47:37 [LUA] Changed bartek1506 licence plate to GAY US
+07/13/2022 10:47:37 [LUA] Changed bartek1506 licence plate to GAY USE
+07/13/2022 10:47:37 [LUA] Changed bartek1506 licence plate to GAY USER
+07/13/2022 10:47:47 [LUA] Changed bartek1506 licence plate to GAY USE
+07/13/2022 10:47:47 [LUA] Changed bartek1506 licence plate to GAY US
+07/13/2022 10:47:48 [LUA] Changed bartek1506 licence plate to GAY U
+07/13/2022 10:47:48 [LUA] Changed bartek1506 licence plate to GAY 
+07/13/2022 10:47:56 [LUA] Glithced bartek1506's vehicle
+07/13/2022 10:47:58 [LUA] Glithced bartek1506's vehicle
+07/13/2022 10:47:59 [LUA] Glithced bartek1506's vehicle
+07/13/2022 10:48:44 [LUA] Enabled Disable godmode on player bartek1506
+07/13/2022 10:50:06 [LUA] Rammed bartek1506 with vehicle: -713569950
+07/13/2022 10:50:08 [LUA] Rammed bartek1506 with vehicle: 1938952078
+07/13/2022 10:50:10 [LUA] Rammed bartek1506 with vehicle: 1938952078
+07/13/2022 10:52:03 [LUA] Glithced bartek1506's vehicle
+07/13/2022 10:52:04 [LUA] Glithced bartek1506's vehicle
+07/13/2022 10:52:04 [LUA] Glithced bartek1506's vehicle
+07/13/2022 10:52:04 [LUA] Glithced bartek1506's vehicle
+07/13/2022 10:52:04 [LUA] Glithced bartek1506's vehicle
+07/13/2022 10:52:04 [LUA] Glithced bartek1506's vehicle
+07/13/2022 10:52:05 [LUA] Glithced bartek1506's vehicle
+07/13/2022 10:52:05 [LUA] Glithced bartek1506's vehicle
+07/13/2022 10:52:05 [LUA] Glithced bartek1506's vehicle
+07/13/2022 10:52:05 [LUA] Glithced bartek1506's vehicle
+07/13/2022 10:52:05 [LUA] Glithced bartek1506's vehicle
+07/13/2022 10:52:05 [LUA] Glithced bartek1506's vehicle
+07/13/2022 10:52:05 [LUA] Glithced bartek1506's vehicle
+07/13/2022 10:52:06 [LUA] Glithced bartek1506's vehicle
+07/13/2022 10:52:06 [LUA] Glithced bartek1506's vehicle
+07/13/2022 10:52:06 [LUA] Glithced bartek1506's vehicle
+07/13/2022 10:52:06 [LUA] Glithced bartek1506's vehicle
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━LOADED KOSMOS TROLLING━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+07/13/2022 16:25:48 [LUA] User chose external type
+07/13/2022 16:28:58 [LUA] Glithced Gozdnipoba's vehicle
+07/13/2022 16:29:23 [LUA] Enabled tire poppin'!
+07/13/2022 16:29:28 [LUA] Disabled tire poppin'!
+07/13/2022 16:31:31 [LUA] Shot bullet: 911657153 to Gozdnipoba
+07/13/2022 16:31:57 [LUA] Rammed Gozdnipoba with vehicle: 3982671785
+07/13/2022 16:32:12 [LUA] Rammed lockerman123 with vehicle: 3982671785
+07/13/2022 16:32:25 [LUA] Rammed lockerman123 with vehicle: 3982671785
+07/13/2022 16:32:32 [LUA] Dropped vehicle: 1938952078 on lockerman123
+07/13/2022 16:32:38 [LUA] Dropped vehicle: -2100640717 on lockerman123
+07/13/2022 16:32:43 [LUA] Dropped vehicle: 1938952078 on lockerman123
+07/13/2022 16:34:17 [LUA] Shot bullet: 2939590305 to -Turbowned
+07/13/2022 16:34:24 [LUA] Shot bullet: 3676729658 to -Turbowned
+07/13/2022 16:34:26 [LUA] Shot bullet: 911657153 to -Turbowned
+07/13/2022 16:34:28 [LUA] Shot bullet: 911657153 to -Turbowned
+07/13/2022 16:34:29 [LUA] Shot bullet: 911657153 to -Turbowned
+07/13/2022 16:35:16 [LUA] Enabled Disable godmode on player _SushiBoy_
+07/13/2022 16:35:23 [LUA] Enabled Disable godmode on player _SushiBoy_
+07/13/2022 16:35:23 [LUA] Enabled Disable godmode on player _SushiBoy_
+07/13/2022 16:35:25 [LUA] Enabled Disable godmode on player _SushiBoy_
+07/13/2022 16:35:28 [LUA] Enabled Disable godmode on player _SushiBoy_
+07/13/2022 16:35:42 [LUA] Enabled Disable godmode on player _SushiBoy_
+07/13/2022 16:35:42 [LUA] Enabled Disable godmode on player _SushiBoy_
+07/13/2022 16:36:12 [LUA] Enabled Disable godmode on player _SushiBoy_
+07/13/2022 16:36:12 [LUA] Enabled Disable godmode on player _SushiBoy_
+07/13/2022 17:10:30 [LUA] Enabled Disable godmode on player xXfrancesco148Xx
+07/13/2022 17:10:30 [LUA] Enabled Disable godmode on player xXfrancesco148Xx
+07/13/2022 17:10:46 [LUA] Failed to request control of ent: 192 within 2 seconds
+07/13/2022 17:12:00 [LUA] Enabled Disable godmode on player DynooHD
+07/13/2022 17:12:00 [LUA] Enabled Disable godmode on player DynooHD
+07/13/2022 17:12:03 [LUA] Enabled Disable godmode on player DynooHD
+07/13/2022 17:12:03 [LUA] Enabled Disable godmode on player DynooHD
+07/13/2022 17:12:04 [LUA] Enabled Disable godmode on player DynooHD
+07/13/2022 17:12:04 [LUA] Enabled Disable godmode on player DynooHD
+07/13/2022 17:12:14 [LUA] Enabled Disable godmode on player DynooHD
+07/13/2022 17:12:14 [LUA] Enabled Disable godmode on player DynooHD
+07/13/2022 17:12:19 [LUA] Dropped vehicle: 1938952078 on DynooHD
+07/13/2022 17:12:37 [LUA] Enabled Disable godmode on player DynooHD
+07/13/2022 17:12:38 [LUA] Enabled Disable godmode on player DynooHD
+07/13/2022 17:20:50 [LUA] Enabled Disable godmode on player Germ110
+07/13/2022 17:20:50 [LUA] Enabled Disable godmode on player Germ110
+07/13/2022 17:20:56 [LUA] Enabled Disable godmode on player Germ110
+07/13/2022 17:21:37 [LUA] Enabled Disable godmode on player juanpabloeberto
+07/13/2022 17:28:38 [LUA] Enabled Disable godmode on player **Invalid**
+07/13/2022 17:28:43 [LUA] Enabled Disable godmode on player xXFrancoXx_ARG
+07/13/2022 17:42:11 [LUA] Enabled Disable godmode on player WolfSempai
+07/13/2022 17:42:12 [LUA] Enabled Disable godmode on player WolfSempai
+07/13/2022 17:42:18 [LUA] Enabled Disable godmode on player WolfSempai
+07/13/2022 17:42:18 [LUA] Enabled Disable godmode on player WolfSempai
+07/13/2022 17:50:05 [LUA] Enabled Disable godmode on player DYLANOR99
+07/13/2022 17:50:29 [LUA] Enabled Disable godmode on player leandroMsalt
+07/13/2022 19:17:49 [LUA] Rammed cristhianVC777 with vehicle: 3982671785
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━LOADED KOSMOS TROLLING━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+07/14/2022 02:24:02 [LUA] User chose external type
+07/14/2022 02:24:10 [LUA] Enabled Disable godmode on player AdmiralAspergers
+07/14/2022 02:24:22 [LUA] Dropped vehicle: 1938952078 on AdmiralAspergers
+07/14/2022 02:24:28 [LUA] Rammed AdmiralAspergers with vehicle: -713569950
+07/14/2022 02:24:32 [LUA] Rammed AdmiralAspergers with vehicle: 3929093893
+07/14/2022 02:24:35 [LUA] Rammed AdmiralAspergers with vehicle: 3982671785
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━LOADED KOSMOS TROLLING━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+07/15/2022 05:24:23 [LUA] User chose external type
+07/15/2022 05:24:29 [LUA] Enabled Disable godmode on player 777zenx
+07/15/2022 05:24:36 [LUA] Enabled Disable godmode on player 777zenx
+07/15/2022 05:24:36 [LUA] Enabled Disable godmode on player 777zenx
+07/15/2022 05:30:41 [LUA] Enabled Disable godmode on player DeletedUser522
+07/15/2022 05:30:41 [LUA] Enabled Disable godmode on player DeletedUser522
+07/15/2022 05:30:45 [LUA] Enabled Rain shit on player DeletedUser522
+07/15/2022 05:30:47 [LUA] Disabled Rain shit on player DeletedUser522
+07/15/2022 05:30:52 [LUA] Random chat reaction #7
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━LOADED KOSMOS TROLLING━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+07/15/2022 15:31:20 [LUA] User chose external type
+07/15/2022 15:32:08 [LUA] Enabled Disable godmode on player kobak10
+07/15/2022 15:32:13 [LUA] Enabled Disable godmode on player kobak10
+07/15/2022 15:32:22 [LUA] Rammed kobak10 with vehicle: -713569950
+07/15/2022 15:32:33 [LUA] Dropped vehicle: 1917016601 on kobak10
+07/15/2022 15:32:35 [LUA] Dropped vehicle: 1917016601 on kobak10
+07/15/2022 15:32:45 [LUA] Shot bullet: 911657153 to kobak10
+07/15/2022 15:32:47 [LUA] Shot bullet: 3676729658 to kobak10
+07/15/2022 15:32:49 [LUA] Shot bullet: 615608432 to kobak10
+07/15/2022 15:32:50 [LUA] Shot bullet: 2939590305 to kobak10
+07/15/2022 15:33:27 [LUA] Shot bullet: 2939590305 to KippoKappa
+07/15/2022 15:33:29 [LUA] Shot bullet: 911657153 to KippoKappa
+07/15/2022 15:33:30 [LUA] Enabled Disable godmode on player KippoKappa
+07/15/2022 15:33:34 [LUA] Enabled Disable godmode on player KippoKappa
+07/15/2022 15:33:38 [LUA] Sent ground attack ped: -1244692252 at KippoKappa
+07/15/2022 15:33:40 [LUA] Spawned ped: -1950698411 infront of KippoKappa
+07/15/2022 15:33:40 [LUA] Spawned ped: 1193010354 infront of KippoKappa
+07/15/2022 15:33:41 [LUA] Spawned ped: -1920284487 infront of KippoKappa
+07/15/2022 15:33:41 [LUA] Spawned ped: -50684386 infront of KippoKappa
+07/15/2022 15:33:43 [LUA] Enabled Rain shit on player **Invalid**
+07/15/2022 15:33:45 [LUA] Disabled Rain shit on player xdziemk
+07/15/2022 15:33:55 [LUA] Kosatkad everyone
+07/15/2022 15:41:16 [LUA] Sent ground attack ped: 1596003233 at kobak10
+07/15/2022 15:41:20 [LUA] Sent ground attack ped: 1596003233 at kobak10
+07/15/2022 15:41:20 [LUA] Sent ground attack ped: 1596003233 at kobak10
+07/15/2022 15:41:21 [LUA] Sent ground attack ped: 1596003233 at kobak10
+07/15/2022 15:41:28 [LUA] Rammed kobak10 with vehicle: 621481054
+07/15/2022 15:41:35 [LUA] Dropped vehicle: -2130482718 on kobak10
+07/15/2022 15:41:48 [LUA] Gave Erwan Saumade a vehicle: 3630826055
+07/15/2022 15:41:50 [LUA] Gave Erwan Saumade a vehicle: 340154634
